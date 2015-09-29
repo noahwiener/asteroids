@@ -7,7 +7,7 @@
     this.pos = params['pos'],
     this.vel = params['vel'],
     this.radius = params['radius'],
-    this.color = "#926239",
+    this.color = params['color'],
     this.game = params['game'];
   };
 
@@ -35,7 +35,7 @@
 
   Asteroids.MovingObject.prototype.isCollidedWith = function (otherObject) {
     var distance = Asteroids.Util.distance(this.pos, otherObject.pos);
-    var totalRadii = this.radius + otherObject.radius
+    var totalRadii = this.radius + otherObject.radius;
     if (distance < totalRadii) {
       return true;
     } else {
@@ -44,10 +44,10 @@
   };
 
   Asteroids.MovingObject.prototype.collideWith = function (otherObject) {
-    var game = this.game;
-    if (this.isCollidedWith(otherObject)){
-      game.remove(this);
-      game.remove(otherObject);
-    }
+    // var game = this.game;
+    // if (this.isCollidedWith(otherObject)){
+    //   game.remove(this);
+    //   game.remove(otherObject);
+    // }
   };
 })();
